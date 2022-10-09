@@ -13,7 +13,16 @@ string[] CreateNewArray(string textArray)
     string[] newArray = new string[newLength];
     return newArray;
 }
+
+
+void PrintNewArray(string[] newArray)
+{
+    for (int i = 0; i < newArray.Length; i++)
+        Console.WriteLine($"{newArray[i]} ");
+}
+
 Console.WriteLine("Введите строки через запятую: ");
 string textArray = Console.ReadLine();
 string[] res = CreateNewArray(textArray);
+PrintNewArray(res);
 
