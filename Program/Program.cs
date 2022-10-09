@@ -11,7 +11,7 @@ string[] CreateNewArray(string[] array)
     return newArray;
 }
 
-string[] SearchLengthString(string[] array, string[] newArray)
+string[] FillNewArray(string[] array, string[] newArray)
 {
     int i = 0;
     while (i < newArray.Length)
@@ -54,5 +54,5 @@ text = text.Replace(" ", "");
 string[] array = text.Split(",");
 
 string[] resNewArray = CreateNewArray(array);
-string[] resSearch = SearchLengthString(array, resNewArray);
+string[] resSearch = FillNewArray(array, resNewArray);
 PrintNewArray(resSearch);
