@@ -1,9 +1,6 @@
 ﻿
-string[] CreateNewArray(string textArray)
+string[] CreateNewArray(string[] array)
 {
-
-    string[] array = textArray.Split(",");
-
     int newLength = 0;
     for (int i = 0; i < array.Length; i++)
     {
@@ -11,6 +8,24 @@ string[] CreateNewArray(string textArray)
             newLength++;
     }
     string[] newArray = new string[newLength];
+    return newArray;
+}
+
+
+string[] SearchLengthString(string[] array, string[] newArray)
+{
+    int i = 0;
+    while (i < newArray.Length)
+    {
+        for (int j = 0; j < array.Length; j++)
+        {
+            if (array[j].Length <= 3)
+            {
+                newArray[i] = array[j];
+                i++;
+            }
+        }
+    }
     return newArray;
 }
 
@@ -23,6 +38,8 @@ void PrintNewArray(string[] newArray)
 
 Console.WriteLine("Введите строки через запятую: ");
 string textArray = Console.ReadLine();
-string[] res = CreateNewArray(textArray);
-PrintNewArray(res);
 
+string[] array = textArray.Split(",");
+string[] result1 = CreateNewArray(array);
+string[] result2 = SearchLengthString(array, result1);
+PrintNewArray(result2);
