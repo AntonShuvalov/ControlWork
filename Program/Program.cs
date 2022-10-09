@@ -1,4 +1,4 @@
-﻿
+﻿# nullable disable
 string[] CreateNewArray(string[] array)
 {
     int newLength = 0;
@@ -10,7 +10,6 @@ string[] CreateNewArray(string[] array)
     string[] newArray = new string[newLength];
     return newArray;
 }
-
 
 string[] SearchLengthString(string[] array, string[] newArray)
 {
@@ -29,17 +28,31 @@ string[] SearchLengthString(string[] array, string[] newArray)
     return newArray;
 }
 
-
 void PrintNewArray(string[] newArray)
 {
+    Console.Write("-> [");
+    if (newArray.Length == 0)
+    {
+        Console.WriteLine(" ]");
+    }
     for (int i = 0; i < newArray.Length; i++)
-        Console.WriteLine($"{newArray[i]} ");
+    {
+        if (i == newArray.Length - 1)
+        {
+            Console.WriteLine($"{newArray[i]}] ");
+        }
+        else
+        {
+            Console.Write($"{newArray[i]}, ");
+        }
+    }
 }
 
-Console.WriteLine("Введите строки через запятую: ");
-string textArray = Console.ReadLine();
+Console.WriteLine("Введите любые строки через запятую: ");
+string text = Console.ReadLine();
+text = text.Replace(" ", "");
+string[] array = text.Split(",");
 
-string[] array = textArray.Split(",");
-string[] result1 = CreateNewArray(array);
-string[] result2 = SearchLengthString(array, result1);
-PrintNewArray(result2);
+string[] resNewArray = CreateNewArray(array);
+string[] resSearch = SearchLengthString(array, resNewArray);
+PrintNewArray(resSearch);
